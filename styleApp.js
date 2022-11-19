@@ -3,13 +3,13 @@ import { StyleSheet, Text, View, SafeAreaView, Button,Alert, Image } from 'react
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e6ffff',
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
   },
   Header:{
     fontSize:40,
-    fontFamily: "Courier",
+    fontFamily: 'monospace',
   },
   bottomTextLeft:{
     position: 'absolute',
@@ -19,11 +19,16 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
   album:{
-    height:250,
-    width:500,
-    position: 'absolute',
+    marginTop: '15%',
+    marginBottom: '2%',
+    height: '35%',
+    width: '35%',
     alignSelf: "center",
     bottom:0,
+  },
+  buttonStyle:{
+    fontFamily: 'monospace',
+    //color: '#f000000',
   },
 
 });

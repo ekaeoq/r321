@@ -6,20 +6,25 @@ import { styles } from "./styleApp.js"
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.Header}>How Bad Is Your Music Taste?</Text>
+      <Text style={styles.Header}>How bad is your music taste?</Text>
+
+      <Image
+          style={styles.album}
+	  	  //file budemo vec poslozili, test path
+          source={require('./empty_vinyl.png')}
+        
+          
+      />
 
       <Button 
-        title="Find Out"
-        color={"#009999"}
-        onPress={() => console.log('Simple Button pressed')}>
+        style={styles.buttomStyle}
+        title="Find Out!"
+        color={"#000000"}
+        onPress={() => alert('uf jebote')}>
       </Button>
 
       <Text style={styles.bottomTextLeft}>Project by Timotej, Viktor and Merisa</Text>
 
-      <Image
-          style={styles.album}
-          source={require('./assets/album.jpg')}
-      />
 
       <StatusBar style="auto" /> 
     </SafeAreaView>
