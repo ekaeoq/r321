@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Button,Alert, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { styles } from "./styleApp.js"
 
 export default function App() {
   return (
@@ -25,7 +26,7 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
+/*const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#e6ffff',
@@ -51,4 +52,4 @@ const styles = StyleSheet.create({
     bottom:0,
   },
 
-});
+});*/
