@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     marginBottom: '2%',
     height: '35%',
     width: '35%',
+	resizeMode:'contain',
     alignSelf: "center",
     bottom:0,
   },
