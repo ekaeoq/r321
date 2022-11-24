@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   Header:{
-    fontSize:40,
+    fontSize: 40,
     fontFamily: 'monospace',
   },
   bottomTextLeft:{
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     bottom:0,
     marginBottom: 20,
     marginLeft: 20,
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
   },
   album:{
     marginTop: '15%',
@@ -24,12 +24,25 @@ const styles = StyleSheet.create({
     height: '35%',
     width: '35%',
     resizeMode:'contain',
-    alignSelf: "center",
+    alignSelf: 'center',
     bottom:0,
   },
   buttonStyle:{
     fontFamily: 'monospace',
     //color: '#f000000',
+  },
+  album_2:{
+    width: '35%',
+    marginLeft: '33%',
+    marginBottom: 20,
+    marginTop: 20,
+    alignSelf: 'center',
+    alignContent: 'center',
+    //resizeMode: 'contain',
+
+  },
+  styleTestJS:{
+    fontSize: 30,
   },
 
 });
