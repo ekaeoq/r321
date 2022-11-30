@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, Button,Alert, Image } from 'react-native';
+import { Animated, StyleSheet, Text, View, SafeAreaView, Button, Alert, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import React, {useState} from 'react';
+import {Component} from 'react';
 import { styles } from './styleApp.js';
 
 //this will eventaully go to its own file
@@ -30,6 +31,19 @@ const Test = () => {
 
   const HoverData = "jel radi ili jel ne radi joj boze radi ili ne radi";
 
+  {/*state = {
+    fadeAnim: new Animated.Value(0)
+  };
+
+  fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(this.state.fadeAnim, {
+      toValue: 1,
+      duration: 500
+    }).start();
+  };*/}
+
+
   const onHover = (e) => {
     e.preventDefault();
     setHover(true);
@@ -43,9 +57,9 @@ const Test = () => {
   return (
     <div>
       {/* if hover is true then only show the text */}
-      {hover && <div style={{fontSize: 50}}>
-        jebo majku
-        <p style={{fontSize: 30}}>
+      {hover && <div>
+        {HoverData.fadeIn}
+        <p style={styles.styleTestJS}>
           test</p>
       </div>}
       <img
@@ -61,6 +75,28 @@ const Test = () => {
         src={require("./empty_vinyl.png")}
       />
       {/*<p>Hover the image</p>*/}
+      {/*<SafeAreaView style={styles.container}>
+        <Animated.View
+          style={[
+            styles.fadingContainer,
+            {
+              // Bind opacity to animated value
+              opacity: this.state.fadeAnim
+            }
+          ]}
+        >
+          <div style={styles.fadingText}>
+            <p>Fading View!</p>                      
+            <p>Fading View!</p>
+            <p>Fading View!</p>
+
+          </div>
+        </Animated.View>
+        <View style={styles.buttonRow}>
+          <Button title="Fade In View" onPress={this.fadeIn} />
+          <Button title="Fade Out View" onPress={this.fadeOut} />
+        </View>
+      </SafeAreaView>*/}
     </div>
   );
 };

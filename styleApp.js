@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   },
   styleTestJS:{
     fontSize: 30,
+    position: 'absolute',
   },
 
 });
