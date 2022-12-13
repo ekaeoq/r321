@@ -1,30 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Button,Alert, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import React, {useState} from 'react';
 import { styles } from './styleApp.js';
 
-//this will eventaully go to its own file
-/*const Test = () => {
-  const [hover, setHover] = useState(false);
-  const HoverTestData = "blabla";
-
-  const onHover = (e) => {
-    e.preventDefault();
-    setHover(true);
-    console.log("jel radi");
-  };
-  const onHoverOver = (e) => {
-    e.preventDefault();
-    setHover(false);
-  };
-
-  return(
-    <img
-    />
-  )
-
-};*/
 const Test = () => {
   const [hover, setHover] = useState(false);
 
@@ -70,14 +48,11 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Text style={styles.Header}>How bad is your music taste?</Text>
       <Test />
-      {/*<Image
-          style={styles.album}
-	  	  //file budemo vec poslozili, test path
-          source={require('./empty_vinyl.png')}
-        
-          
-      />*/}
 
+      <img
+        style={styles.album_2}
+        src={require("./empty_vinyl.png")}
+      />
       <Button 
         style={styles.buttomStyle}
         title="Find Out!"
@@ -87,36 +62,7 @@ export default function App() {
 
       <Text style={styles.bottomTextLeft}>Project by Timotej, Viktor and Merisa</Text>
 
-
       <StatusBar style="auto" /> 
     </SafeAreaView>
   );
 }
-
-/*const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#e6ffff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  Header:{
-    fontSize:40,
-    fontFamily: "Courier",
-  },
-  bottomTextLeft:{
-    position: 'absolute',
-    bottom:0,
-    marginBottom: 20,
-    marginLeft: 20,
-    alignSelf: "flex-start",
-  },
-  album:{
-    height:250,
-    width:500,
-    position: 'absolute',
-    alignSelf: "center",
-    bottom:0,
-  },
-
-});*/
