@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginHorizontal:300,
+    marginHorizontal:250,
     marginVertical:200,
   },
 
