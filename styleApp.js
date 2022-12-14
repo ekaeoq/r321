@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   },
   styleTestJS:{
     fontSize: 30,
+    position: 'absolute',
   },
   screen2:{
     flex: 1,
