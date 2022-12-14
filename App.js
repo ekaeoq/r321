@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import React, {useState} from 'react';
 import {Component} from 'react';
 import { styles } from './styleApp.js';
+import AnimatedTyping from './AnimatedTyping.js';
 
 //this will eventaully go to its own file
 /*const Test = () => {
@@ -104,15 +105,11 @@ const Test = () => {
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.Header}>How bad is your music taste?</Text>
-      <Test />
-      {/*<Image
-          style={styles.album}
-	  	  //file budemo vec poslozili, test path
-          source={require('./empty_vinyl.png')}
-        
-          
-      />*/}
+     {/* <Text style={styles.Header}>How bad is your music taste?</Text>*/}
+     <AnimatedTyping text={["How bad is your music taste?", "12345678"]} />
+      <Test /> 
+
+      
 
       <Button 
         style={styles.buttomStyle}
