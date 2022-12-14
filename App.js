@@ -1,68 +1,130 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, Button,Alert, Image } from 'react-native';
-import React, {useState} from 'react';
 import { styles } from './styleApp.js';
+import {View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Button, Pressable } from 'react-native';
+import AnimatedTyping from './AnimatedTyping.js';
 
-const Test = () => {
-  const [hover, setHover] = useState(false);
+//Navigation import
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-  const HoverData = "jel radi ili jel ne radi joj boze radi ili ne radi";
+//Screen One
+const ScreenOne = props => {
 
-  const onHover = (e) => {
-    e.preventDefault();
-    setHover(true);
-    console.log("hovered");
+  //onPress To Navigate
+  const onPress = () => {
+    props.navigation.navigate('ScreenTwo');
   };
 
-  const onHoverOver = (e) => {
-    e.preventDefault();
-    setHover(false);
-  };
   return (
-    <div>
-      {/* if hover is true then only show the text */}
-      {hover && <div style={{fontSize: 50}}>
-        jebo majku
-        <p style={{fontSize: 30}}>
-          test</p>
-      </div>}
-      <img
-      //div is not centerd thats why im using marginLeft
-        style={styles.album_2}
-       /* style={{
-
-          width: '25%',
-        }
-        }*/
-        onMouseEnter={(e) => onHover(e)}
-        onMouseLeave={(e) => onHoverOver(e)}
-        src={require("./empty_vinyl.png")}
-      />
-      {/*<p>Hover the image</p>*/}
-    </div>
+    <SafeAreaView style={styles.container}>
+        <Text style={styles.Header}>How bad is your music taste?</Text>
+        
+  
+        <img
+          style={styles.album_2}
+          src={require("./empty_vinyl.png")}
+        />
+        <Button 
+          color={"#000000"}
+          title="Find Out!"
+          //color={"#000000"}
+          onPress={onPress}>
+        </Button>
+  
+        <Text style={styles.bottomTextLeft}>Project by Timotej, Viktor and Merisa</Text>
+  
+        <StatusBar style="auto" /> 
+      </SafeAreaView>
   );
 };
 
-export default function App() {
+
+
+//Screen Two
+const ScreenTwo = props => {
+
+  const [shouldShow, setShouldShow] = useState(false);//false 
+  const [showButton, setShowButton] = useState(false);
+
+
+  const next = () => {
+    props.navigation.navigate('ScreenThree');
+  };
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.Header}>How bad is your music taste?</Text>
-      <Test />
+    <View style={styles.screen2}>
 
-      <img
-        style={styles.album_2}
-        src={require("./empty_vinyl.png")}
-      />
-      <Button 
-        style={styles.buttomStyle}
-        title="Find Out!"
-        color={"#000000"}
-        onPress={() => alert('uf jebote')}>
-      </Button>
+      <AnimatedTyping text={["Hi i am an AI programmed, to judge your music taste bla bla bla ..."]} onComplete={() => setShowButton(true)}/>
 
-      <Text style={styles.bottomTextLeft}>Project by Timotej, Viktor and Merisa</Text>
+      
 
-      <StatusBar style="auto" /> 
-    </SafeAreaView>
+      {showButton ? (
+          <Pressable 
+          style={styles.button2Style}
+          
+          onPress={() => setShouldShow(!shouldShow)}
+        > <Text style={{color: "white"}}>show component</Text> </Pressable>
+      ) : null}
+
+      {showButton ? (
+          <Pressable  
+          style={styles.button2Style}
+          
+          onPress={next}><Text style={{color: "white"}}>log in with spotify</Text>
+      </Pressable >
+      ) : null}
+
+      {shouldShow ? (
+        <AnimatedTyping text={["Hi i am an AI programmed, to judge your music taste bla bla bla ..."] } />
+      ) : null}
+          
+    </View>
   );
-}
+};
+
+//Screen Three
+const ScreenThree = props => {
+
+  const [shouldShowText, sethouldShowText] = useState(false);//false 
+
+  const back = () => {
+    props.navigation.navigate('Music Judger');
+  };
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+
+      <AnimatedTyping text={["text text loading blablabla"]} onComplete={() => sethouldShowText(true)}/>
+
+      {shouldShowText ? (
+        <AnimatedTyping text={["drugi text blabla"] } />
+      ) : null}
+
+      <Button 
+          style={styles.buttomStyle}
+          title="back"
+          color={"#000000"}
+          onPress={back}>
+        </Button>
+    </View>
+  );
+};
+
+const App = () => {
+  const Stack = createStackNavigator();
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+        headerShown: false //nastavljanje headerja
+        }}
+      >
+        <Stack.Screen name="Music Judger" component={ScreenOne} />
+        <Stack.Screen name="ScreenTwo" component={ScreenTwo} />
+        <Stack.Screen name="ScreenThree" component={ScreenThree} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;

@@ -29,11 +29,17 @@ const styles = StyleSheet.create({
   },
   buttonStyle:{
     fontFamily: 'monospace',
-    //color: '#f000000',
+    color: "#000000"
+  },
+  button2Style:{
+    alignSelf: 'flex-end',
+    backgroundColor:"black",
+    borderRadius: 5,
+    padding: 10,
+    margin: 5
   },
   album_2:{
     width: '35%',
-    marginLeft: '33%',
     marginBottom: 20,
     marginTop: 20,
     alignSelf: 'center',
@@ -43,6 +49,13 @@ const styles = StyleSheet.create({
   },
   styleTestJS:{
     fontSize: 30,
+  },
+  screen2:{
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginHorizontal:300,
+    marginVertical:200,
   },
 
 });
