@@ -95,7 +95,7 @@ export default function AnimatedTyping(props) {
 let styles = StyleSheet.create({
     text: {
         color: "black",
-        fontSize: 40,
+        fontSize: 25,
         fontFamily: 'monospace'
     }
 })
