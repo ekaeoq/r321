@@ -6,7 +6,6 @@ import AnimatedTyping from './AnimatedTyping.js';
 import { spotifyCredentials } from './secrets';
 import SpotifyWebAPI from 'spotify-web-api-js';
 import * as WebBrowser from 'expo-web-browser';
-import { getCurrentUserProfile } from './spotify';
 //import * as AuthSession from 'expo-auth-session';
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session';
 import { encode as btoa } from 'base-64';
