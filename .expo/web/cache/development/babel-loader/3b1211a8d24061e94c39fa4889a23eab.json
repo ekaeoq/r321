@@ -1,0 +1,1 @@
+{"ast":null,"code":"import axios from 'axios';","map":{"version":3,"names":["axios"],"sources":["/Users/merisa/Documents/GitHub/r321/spotify.js"],"sourcesContent":["import axios from 'axios';\n"],"mappings":"AAAA,OAAOA,KAAK,MAAM,OAAO"},"metadata":{},"sourceType":"module"}
