@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { styles } from './styleApp.js';
-import {View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Button, Pressable } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Button, Pressable, Image } from 'react-native';
 import AnimatedTyping from './AnimatedTyping.js';
 import { spotifyCredentials } from './secrets';
 import SpotifyWebAPI from 'spotify-web-api-js';
@@ -59,7 +59,7 @@ const ScreenOne = props => {
 //Screen Two
 const ScreenTwo = props => {
     
-const [token, setToken] = useState("");
+window.token="";
 const [name, setName] = useState("");
 const [request, response, promptAsync] = 
   useAuthRequest(
@@ -86,7 +86,8 @@ const [request, response, promptAsync] =
   React.useEffect(() => {
     if (response?.type === "success") {
       const { access_token } = response.params;
-      setToken(access_token);
+      window.token = access_token;
+      console.log(access_token);
       console.log(response);
     }
   }, [response]);
@@ -115,6 +116,25 @@ const [request, response, promptAsync] =
         });
     }
   });
+  
+
+  const [shouldShow, setShouldShow] = useState(false);//false 
+  const [shouldShowName, setShouldShowName] = useState(false);//false 
+  const [showButton, setShowButton] = useState(false);
+  const [album1, setAlbum1] = useState(""); 
+  const [album2, setAlbum2] = useState(""); 
+  const [album3, setAlbum3] = useState("");
+  const [track1, setTrack1] = useState("");
+  const [track2, setTrack2] = useState("");
+  const [track3, setTrack3] = useState("");
+  const [showImage, setShowImage] = useState(false);
+
+  const next = () => {
+    //promptAsync();
+    props.navigation.navigate('ScreenThree', {token:token });
+    
+  };
+
   React.useEffect(() => {
     if (token) {
       axios(
@@ -128,22 +148,19 @@ const [request, response, promptAsync] =
       })
         .then((response) => {
           console.log(response);
+          setAlbum1(response.data.items[0].album.images[0].url);
+          setTrack1(response.data.items[0].name + " " + response.data.items[0].artists[0].name);
+          setAlbum2(response.data.items[1].album.images[0].url);
+          setTrack2(response.data.items[1].name + " " + response.data.items[1].artists[0].name);
+          setAlbum3(response.data.items[2].album.images[0].url);
+          setTrack3(response.data.items[2].name + " " + response.data.items[2].artists[0].name);
+          setShowImage(true);
         })
         .catch((error) => {
           console.log("error", error.message);
         });
     }
   });
-
-  const [shouldShow, setShouldShow] = useState(false);//false 
-  const [shouldShowName, setShouldShowName] = useState(false);//false 
-  const [showButton, setShowButton] = useState(false);
-
-
-  const next = () => {
-    //props.navigation.navigate('ScreenThree');
-    promptAsync();
-  };
   return (
     <View style={styles.screen2}>
 
@@ -164,30 +181,90 @@ const [request, response, promptAsync] =
 
       {shouldShowName ? (
         <Text>
-          {name}
+          Thank you {name} for signing in!
           </Text>
       ) : null}
+      {setShowImage ? (
+        <Text>
+          {track1}
+          </Text>
+      ) : null}
+      {setShowImage ? (
+            <Image
+            name="album1"
+            style={styles.topAlbum}
+            source={{
+              uri: album1,
+            }}
+            />
+            
+            ) : null}
+      {setShowImage ? (
+        <Text>
+          {track2}
+          </Text>
+      ) : null}
+      {setShowImage ? (
+      <Image
+      style={styles.topAlbum}
+      source={{
+        uri: album2,
+      }}
+      />
+      ) : null}
+      {setShowImage ? (
+        <Text>
+          {track3}
+          </Text>
+      ) : null}
+      {setShowImage ? (
+        
+      <Image
+      name="album1"
+      style={styles.topAlbum}
+      source={{
+        uri: album3,
+      }}
+      />
+      ) : null}
+      {showButton ? (
+          <Pressable  
+          style={styles.button2Style}
           
+          onPress={()=> {next();}}><Text style={{color: "white"}}>log in with spotify</Text>
+      </Pressable >
+      ) : null}
+
     </View>
   );
 };
 
 //Screen Three
 const ScreenThree = props => {
-
+  const token2= window.token;
+  console.log(window.token);
   const [shouldShowText, sethouldShowText] = useState(false);//false 
-
+  
   const back = () => {
     props.navigation.navigate('Music Judger');
   };
+
+  
+
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
 
       <AnimatedTyping text={["text text loading blablabla"]} onComplete={() => sethouldShowText(true)}/>
 
       {shouldShowText ? (
-        <AnimatedTyping text={["drugi text blabla"] } />
+        <AnimatedTyping text={["Your top albums are: "] } />
       ) : null}
+
+      <img
+          style={styles.album_2}
+          src={require("./empty_vinyl.png")}
+        />
+
 
       <Button 
           style={styles.buttomStyle}

@@ -19,13 +19,18 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   album:{
-    marginTop: '15%',
+    marginTop: '20%',
     marginBottom: '2%',
     height: '35%',
     width: '35%',
     resizeMode:'contain',
-    alignSelf: 'center',
     bottom:0,
+  },
+  topAlbum:{
+    height: '35%',
+    width: '35%',
+    resizeMode:'contain',
+    alignSelf:'flex-start'
   },
   buttonStyle:{
     fontFamily: 'monospace',
@@ -54,10 +59,10 @@ const styles = StyleSheet.create({
   screen2:{
     flex: 1,
     justifyContent: 'flex-start',
-    alignItems: 'center',
     marginHorizontal:250,
     marginVertical:200,
   },
+  
 
 });
 
