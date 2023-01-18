@@ -18,7 +18,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import ScreenOne from './ScreenOne.js';
 import ScreenTwo from './ScreenTwo.js';
-import ScreenThree from './ScreenThree.js';
 import Results from './Results.js';
 
 
@@ -34,7 +33,6 @@ const App = () => {
       >
         <Stack.Screen name="Music Judger" component={ScreenOne} />
         <Stack.Screen name="ScreenTwo" component={ScreenTwo} />
-        <Stack.Screen name="ScreenThree" component={ScreenThree} />
         <Stack.Screen name="Results" component={Results} />
       </Stack.Navigator>
     </NavigationContainer>
