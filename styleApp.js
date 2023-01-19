@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   Header: {
     fontSize: 40,
     fontFamily: "monospace",
+    marginBottom: "2vh",
   },
   bottomTextLeft: {
     position: "absolute",
@@ -26,6 +27,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginLeft: 20,
     alignSelf: "flex-start",
+    opacity: "30%", 
   },
   album: {
     marginTop: "15%",
@@ -35,6 +37,127 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     alignSelf: "center",
     bottom: 0,
+  },
+  textstyl: {
+    fontFamily: "Arial Black",
+    fontSize: 80,
+    opacity: "40%",
+  },
+  textstyl2: {
+    fontFamily: "monospace",
+    fontSize: 15,
+    opacity: "70%",
+  },
+  quotetext: {
+    position: "absolute",
+    top: "3%",
+    left: "10%",
+    fontSize: 40,
+    fontFamily: "monospace",
+    color:"blue",
+    alignSelf: "flex-start",
+  },
+  quotetext2: {
+    position: "absolute",
+    fontSize: 40,
+    top: "5%",
+    left: "33%",
+    fontFamily: "monospace",
+    color:"red",
+  },
+  quotetext3: {
+    position: "absolute",
+    fontSize: 40,
+    top: "8%",
+    left: "50%",
+    fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext4: {
+    position: "absolute",
+    fontSize: 40,
+    top: "4%",
+    left: "57%",
+    fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext5: {
+    position: "absolute",
+    fontSize: 40,
+    top: "6.9%",
+    left: "76%",
+    fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext6: {
+    fontSize: 14,
+    top:"10%",
+    fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext7: {
+    position: "absolute",
+    fontSize: 40,
+    top: "34%",
+    left: "4%",
+    fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext8: {
+    position: "absolute",
+    fontSize: 40,
+    top: "43%",
+    left: "28%",
+    fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext9: {
+    position: "absolute",
+    fontSize: 40,
+    top: "50%",
+    left: "72%",
+    fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext10: {
+    position: "absolute",
+    fontSize: 40,
+    top: "69%",
+    left: "4%",
+    fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext11: {
+    position: "absolute",
+	  fontSize: 40,
+    top: "72%",
+    left: "11%",
+    fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext12: {
+    position: "absolute",
+	  fontSize: 40,
+    top: "74%",
+    left: "70%",
+    fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext13: {
+    position: "absolute",
+	  fontSize: 40,
+    top: "90%",
+    left: "30%",
+	  fontFamily: "monospace",
+    color:"blue",
+  },
+  quotetext14: {
+    top: "10.7%",
+	  fontFamily: "monospace",
+    color:"blue",
+  },
+  buttonMainpage: {
+    marginTop: "3%",
   },
   buttonStyle: {
     fontFamily: "monospace",
@@ -107,6 +230,8 @@ const styles = StyleSheet.create({
   screen3Container: {
     width: "100%",
     height: "100%",
+    backgroundColor: "white",
+    marginBottom: 600,
   },
   screen3: {
     ...Platform.select({
@@ -133,7 +258,7 @@ const styles = StyleSheet.create({
     height: 15,
     backgroundColor: "#C4CDD5",
     //borderRadius: 10,
-    position: "absolute",
+    position: "fixed",
     bottom: 0,
   },
   progress: {
@@ -147,7 +272,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: "#005249",
     marginBottom: 20,
-    position: "absolute",
+    position: "fixed",
     bottom: 0,
   },
   progressBG2: {
@@ -167,6 +292,63 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: "#005249",
     marginBottom: 20,
+  },
+  topAlbum:{
+    height: '35vh',
+    width: '35vh',
+    resizeMode:'contain',
+    alignSelf:'center',
+    //border: "5px solid #555",
+    margin: "3vh",
+  },
+  testinghard:{
+    marginVertical: "17vh",
+    marginHorizontal: "20vh",
+  },
+  bottomMarginForShits: {
+    marginVertical: "20vh",
+    marginHorizontal: "20vh",
+  },
+  Header3: {
+    fontSize: 40,
+    fontFamily: "monospace",
+    marginTop: 20
+  },
+
+  resultsContainer: {
+    paddingTop: 20,
+    width: "100%",
+    height: "100%",
+    flex: 4,
+    backgroundColor: "#ffffff",
+    alignItems: "center",
+  },
+  imageContainer: {
+    flexDirection: "row",
+    alignContent: "center",
+    justifyContent: "center",
+  },
+
+  textContainer: {
+    flex: 2,
+    flexDirection: "column",
+    alignContent: "center",
+    textAlign: "center",
+    padding: "10px",
+    alignItems: "center",
+    
+  },
+  textstyl: {
+    fontFamily: "Arial Black",
+    fontSize: 80,
+    opacity: "40%",
+  },
+  quotetext2: {
+    position: "absolute",
+    fontSize: 40,
+    top: "5%",
+    left: "63%",
+    fontFamily: "monospace",
   },
 });
 

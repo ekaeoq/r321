@@ -23,7 +23,6 @@ import Results from './Results.js';
 
 const App = () => {
   const Stack = createStackNavigator();
-
   return (
     <NavigationContainer>
       <Stack.Navigator
